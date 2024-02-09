@@ -9,5 +9,15 @@ pub fn day01() {
         .lines()
         .map(|line| line.unwrap())
         .collect::<Vec<String>>();
-    println!("lines in input: {}", lines.len());
+
+    let nums: Vec<i32> = lines.iter().map(|num| num.parse().unwrap()).collect();
+
+    let mut count = 0;
+    for i in nums.windows(2) {
+        if i[0] < i[1] {
+            count += 1;
+        }
+    }
+
+    println!("Day 01 - Part 1: {}", count);
 }
